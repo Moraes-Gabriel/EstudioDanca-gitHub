@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/C:/Users/Cleiton/Documents/NetBeansProjects/EstudioDanca/src/connection/DbException.java</file>
+            <file>file:/C:/Users/Cleiton/Documents/NetBeansProjects/EstudioDanca/src/model/dao/impl/aulasMensaisJDBC.java</file>
+            <file>file:/C:/Users/Cleiton/Documents/NetBeansProjects/EstudioDanca/src/view/ViewProfessora.java</file>
+            <file>file:/C:/Users/Cleiton/Documents/NetBeansProjects/EstudioDanca/src/model/entities/usuario.java</file>
+            <file>file:/C:/Users/Cleiton/Documents/NetBeansProjects/EstudioDanca/src/model/entities/valoresMeA.java</file>
+            <file>file:/C:/Users/Cleiton/Documents/NetBeansProjects/EstudioDanca/src/model/dao/impl/MatriculaDaoJDBC.java</file>
+            <file>file:/C:/Users/Cleiton/Documents/NetBeansProjects/EstudioDanca/src/view/ViewCreatePagamento.java</file>
+            <file>file:/C:/Users/Cleiton/Documents/NetBeansProjects/EstudioDanca/src/model/dao/usuarioDAO.java</file>
+            <file>file:/C:/Users/Cleiton/Documents/NetBeansProjects/EstudioDanca/src/model/dao/matriculaDAO.java</file>
+            <file>file:/C:/Users/Cleiton/Documents/NetBeansProjects/EstudioDanca/src/view/ViewMatricula.java</file>
+            <file>file:/C:/Users/Cleiton/Documents/NetBeansProjects/EstudioDanca/src/model/dao/pagamentosDAO.java</file>
+            <file>file:/C:/Users/Cleiton/Documents/NetBeansProjects/EstudioDanca/src/view/ViewCliente.java</file>
+            <file>file:/C:/Users/Cleiton/Documents/NetBeansProjects/EstudioDanca/src/model/dao/DaoFactory.java</file>
+            <file>file:/C:/Users/Cleiton/Documents/NetBeansProjects/EstudioDanca/src/view/ViewUsuario.java</file>
+            <file>file:/C:/Users/Cleiton/Documents/NetBeansProjects/EstudioDanca/src/model/dao/clientesDAO.java</file>
+            <file>file:/C:/Users/Cleiton/Documents/NetBeansProjects/EstudioDanca/src/view/TelaPrincipál.java</file>
+            <file>file:/C:/Users/Cleiton/Documents/NetBeansProjects/EstudioDanca/src/model/entities/pagamentos.java</file>
+            <file>file:/C:/Users/Cleiton/Documents/NetBeansProjects/EstudioDanca/src/model/dao/impl/ClientesDaoJDBC.java</file>
+            <file>file:/C:/Users/Cleiton/Documents/NetBeansProjects/EstudioDanca/src/model/dao/impl/DancasDaoJDBC.java</file>
+            <file>file:/C:/Users/Cleiton/Documents/NetBeansProjects/EstudioDanca/src/model/entities/aulasMensais.java</file>
+            <file>file:/C:/Users/Cleiton/Documents/NetBeansProjects/EstudioDanca/src/model/entities/clientes.java</file>
+            <file>file:/C:/Users/Cleiton/Documents/NetBeansProjects/EstudioDanca/src/model/entities/matricula.java</file>
+            <file>file:/C:/Users/Cleiton/Documents/NetBeansProjects/EstudioDanca/src/model/dao/impl/UsuarioDaoJDBC.java</file>
+            <file>file:/C:/Users/Cleiton/Documents/NetBeansProjects/EstudioDanca/src/view/ViewDancas.java</file>
+            <file>file:/C:/Users/Cleiton/Documents/NetBeansProjects/EstudioDanca/src/view/ViewPagamento.java</file>
+            <file>file:/C:/Users/Cleiton/Documents/NetBeansProjects/EstudioDanca/src/estudiodanca/EstudioDanca.java</file>
+            <file>file:/C:/Users/Cleiton/Documents/NetBeansProjects/EstudioDanca/src/model/entities/valorPorDanca.java</file>
+            <file>file:/C:/Users/Cleiton/Documents/NetBeansProjects/EstudioDanca/src/model/dao/dancasDAO.java</file>
+            <file>file:/C:/Users/Cleiton/Documents/NetBeansProjects/EstudioDanca/src/model/dao/impl/PagamentoDaoJDBC.java</file>
+            <file>file:/C:/Users/Cleiton/Documents/NetBeansProjects/EstudioDanca/src/model/dao/aulasMensaisDAO.java</file>
+            <file>file:/C:/Users/Cleiton/Documents/NetBeansProjects/EstudioDanca/src/connection/connectionFactory.java</file>
+            <file>file:/C:/Users/Cleiton/Documents/NetBeansProjects/EstudioDanca/src/model/entities/dancas.java</file>
+            <file>file:/C:/Users/Cleiton/Documents/NetBeansProjects/EstudioDanca/src/view/ViewGanhos.java</file>
+        </group>
+    </open-files>
+</project-private>
