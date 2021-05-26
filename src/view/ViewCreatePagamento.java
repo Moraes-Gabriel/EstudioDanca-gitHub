@@ -307,14 +307,6 @@ public class ViewCreatePagamento extends javax.swing.JFrame {
        matriculaDAO mDAO = DaoFactory.createMatriculaDao();
         
         clientes a = cDAO.findByNome(cmbIDClientes.getSelectedItem().toString());
-     
-       
-        mDAO.FindDancasDoAlunoForId(new clientes(a.getId()));
-
-       
-       
-       
-       
        cmbIDDanca.removeAllItems();
       
         mDAO.FindDancasDoAlunoForId(new clientes(a.getId())).forEach((_item) -> {

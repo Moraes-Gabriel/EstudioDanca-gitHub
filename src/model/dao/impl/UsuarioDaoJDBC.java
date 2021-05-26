@@ -9,11 +9,13 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import model.dao.usuarioDAO;
+import model.entities.clientes;
 import model.entities.dancas;
 import model.entities.usuario;
 
@@ -104,6 +106,52 @@ public class UsuarioDaoJDBC implements usuarioDAO {
 
     @Override
     public List<usuario> findAll() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        PreparedStatement st = null;
+        ResultSet rs = null;
+        
+        try {
+            
+       
+        st = conn.prepareStatement(
+        
+               "SELECT * FROM usuario ORDER BY Nome" );
+                
+               rs = st.executeQuery();
+               
+               List<usuario> list = new ArrayList<>();
+        
+               while(rs.next()){
+                   
+                   usuario obj = InstantiateMatricula(rs);
+                   
+                   list.add(obj);
+                   
+               }
+                    return list;   
+                       
+                     
+                       
+               
+                       
+    }catch (Exception e) {
+        JOptionPane.showMessageDialog(null, "erro ao findAll do usuario "+e);
+        }finally{
+            connection.connectionFactory.closeStatment(st);
+            connection.connectionFactory.closeResultSet(rs);
+        }
+          return null;
+    }
+    
+    
+    private usuario InstantiateMatricula(ResultSet rs) throws SQLException{
+        
+        usuario obj = new usuario();
+        
+        obj.setId(rs.getInt("Id"));
+        obj.setNome(rs.getString("Nome"));
+        obj.setIdade(rs.getDate("Idade"));
+        obj.setCpf(rs.getString("CPF"));
+        obj.setSexo(rs.getString("Sexo"));
+         return obj;
     }
 }

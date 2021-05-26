@@ -21,6 +21,7 @@ import model.dao.clientesDAO;
 import model.dao.dancasDAO;
 import model.dao.matriculaDAO;
 import model.dao.pagamentosDAO;
+import model.dao.usuarioDAO;
 import model.entities.clientes;
 import model.entities.dancas;
 import model.entities.matricula;
@@ -30,19 +31,20 @@ import model.entities.pagamentos;
  *
  * @author Cleiton
  */
-public class ViewCreatePagamento extends javax.swing.JFrame {
+public class ViewPagamentoProfessor extends javax.swing.JFrame {
 
     /**
      * Creates new form ViewUsuario
      */ 
-    public ViewCreatePagamento() {
+    public ViewPagamentoProfessor() {
         initComponents();
        clientesDAO cDAO = DaoFactory.createClientesDao();   
        matriculaDAO mDAO = DaoFactory.createMatriculaDao();
+        usuarioDAO uDAO = DaoFactory.createUsuarioDao();
        
-         cmbIDClientes.addItem(null);
-       cDAO.findAll().forEach((p) -> {
-           cmbIDClientes.addItem(p.getNome());
+         cmbNomeProfessora.addItem(null);
+       uDAO.findAll().forEach((p) -> {
+           cmbNomeProfessora.addItem(p.getNome());
         });
         
        
@@ -66,7 +68,7 @@ public class ViewCreatePagamento extends javax.swing.JFrame {
         txtValor = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         cmbIDDanca = new javax.swing.JComboBox<>();
-        cmbIDClientes = new javax.swing.JComboBox<>();
+        cmbNomeProfessora = new javax.swing.JComboBox<>();
         jLabel4 = new javax.swing.JLabel();
         txtDataAtual = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
@@ -86,7 +88,7 @@ public class ViewCreatePagamento extends javax.swing.JFrame {
         jLabel2.setText("Dança:");
 
         jLabel3.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
-        jLabel3.setText("Aluno: ");
+        jLabel3.setText("Professor");
 
         txtValor.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
 
@@ -105,10 +107,10 @@ public class ViewCreatePagamento extends javax.swing.JFrame {
             }
         });
 
-        cmbIDClientes.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
-        cmbIDClientes.addActionListener(new java.awt.event.ActionListener() {
+        cmbNomeProfessora.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
+        cmbNomeProfessora.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cmbIDClientesActionPerformed(evt);
+                cmbNomeProfessoraActionPerformed(evt);
             }
         });
 
@@ -190,8 +192,8 @@ public class ViewCreatePagamento extends javax.swing.JFrame {
                                         .addComponent(txtValor, javax.swing.GroupLayout.PREFERRED_SIZE, 299, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addComponent(jButton1)
                                         .addComponent(txtDataAtual, javax.swing.GroupLayout.PREFERRED_SIZE, 299, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(cmbIDClientes, javax.swing.GroupLayout.PREFERRED_SIZE, 299, javax.swing.GroupLayout.PREFERRED_SIZE))))))
-                .addContainerGap(93, Short.MAX_VALUE))
+                                    .addComponent(cmbNomeProfessora, javax.swing.GroupLayout.PREFERRED_SIZE, 299, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                .addContainerGap(70, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -200,7 +202,7 @@ public class ViewCreatePagamento extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(cmbIDClientes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cmbNomeProfessora, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -270,7 +272,7 @@ public class ViewCreatePagamento extends javax.swing.JFrame {
             java.sql.Date data = new java.sql.Date(format.parse(txtDataAtual.getText()).getTime());
             
             dancas d = dDAO.findByDesc(cmbIDDanca.getSelectedItem().toString());
-            clientes c =  cDAO.findByNome(cmbIDClientes.getSelectedItem().toString());
+            clientes c =  cDAO.findByNome(cmbNomeProfessora.getSelectedItem().toString());
             Double valor = Double.parseDouble(txtValor.getText());
             
             
@@ -286,12 +288,12 @@ public class ViewCreatePagamento extends javax.swing.JFrame {
                 pDAO.create(newPag);
                 
                 
-                JOptionPane.showMessageDialog(null, "Parabens voce acabou de criar o pagamento do aluno: "+ cmbIDClientes.getSelectedItem());
+                JOptionPane.showMessageDialog(null, "Parabens voce acabou de criar o pagamento do aluno: "+ cmbNomeProfessora.getSelectedItem());
             } catch (HeadlessException e) {
                 JOptionPane.showMessageDialog(null, "Erro ao criar o usuario, tente novamente");
             }
         } catch (ParseException ex) {
-            Logger.getLogger(ViewCreatePagamento.class.getName()).log(Level.SEVERE,null, ex);
+            Logger.getLogger(ViewPagamentoProfessor.class.getName()).log(Level.SEVERE,null, ex);
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -299,22 +301,15 @@ public class ViewCreatePagamento extends javax.swing.JFrame {
 
     }//GEN-LAST:event_cmbIDDancaActionPerformed
 
-    private void cmbIDClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbIDClientesActionPerformed
+    private void cmbNomeProfessoraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbNomeProfessoraActionPerformed
         // TODO add your handling code here:
         
          clientesDAO cDAO = DaoFactory.createClientesDao(); 
          dancasDAO dDAO = DaoFactory.createDancasDao();
        matriculaDAO mDAO = DaoFactory.createMatriculaDao();
         
-        clientes a = cDAO.findByNome(cmbIDClientes.getSelectedItem().toString());
-     
-       
-        mDAO.FindDancasDoAlunoForId(new clientes(a.getId()));
-
-       
-       
-       
-       
+        clientes a = cDAO.findByNome(cmbNomeProfessora.getSelectedItem().toString());
+        
        cmbIDDanca.removeAllItems();
       
         mDAO.FindDancasDoAlunoForId(new clientes(a.getId())).forEach((_item) -> {
@@ -324,7 +319,7 @@ public class ViewCreatePagamento extends javax.swing.JFrame {
         
     
         
-    }//GEN-LAST:event_cmbIDClientesActionPerformed
+    }//GEN-LAST:event_cmbNomeProfessoraActionPerformed
 
     private void txtDataProxPagActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDataProxPagActionPerformed
         // TODO add your handling code here:
@@ -342,7 +337,7 @@ public class ViewCreatePagamento extends javax.swing.JFrame {
            matriculaDAO mDAO = DaoFactory.createMatriculaDao();
            
          dancas b = dDAO.findByDesc(cmbIDDanca.getSelectedItem().toString());
-          clientes a = cDAO.findByNome(cmbIDClientes.getSelectedItem().toString());
+          clientes a = cDAO.findByNome(cmbNomeProfessora.getSelectedItem().toString());
         
           matricula m = mDAO.FindProxPagForIdCliIdDan(new clientes(a.getId()), new dancas(b.getId()));
              
@@ -372,14 +367,22 @@ public class ViewCreatePagamento extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ViewCreatePagamento.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ViewPagamentoProfessor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ViewCreatePagamento.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ViewPagamentoProfessor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ViewCreatePagamento.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ViewPagamentoProfessor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ViewCreatePagamento.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ViewPagamentoProfessor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -393,14 +396,14 @@ public class ViewCreatePagamento extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             @Override
             public void run() {
-                new ViewCreatePagamento().setVisible(true);
+                new ViewPagamentoProfessor().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> cmbIDClientes;
     private javax.swing.JComboBox<String> cmbIDDanca;
+    private javax.swing.JComboBox<String> cmbNomeProfessora;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;

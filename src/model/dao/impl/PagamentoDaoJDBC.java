@@ -331,30 +331,4 @@ public class PagamentoDaoJDBC implements pagamentosDAO {
        
         return vd;
 }
-
-    
-
-  
-
-    
-   
 }
-
-               
-         
-            
-    
-        
-    
-
-
-   
-
-    
-     
-            
-       
-    
-    
-   
-

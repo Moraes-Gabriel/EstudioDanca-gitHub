@@ -196,7 +196,7 @@ public class MatriculaDaoJDBC implements matriculaDAO{
             }
                 return list;
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "erro ao procurar pelo dancasPeloAluno "+e);
+            JOptionPane.showMessageDialog(null, "erro ao procurar pelo dancas Pelo Aluno "+e);
         }
           return null;
 

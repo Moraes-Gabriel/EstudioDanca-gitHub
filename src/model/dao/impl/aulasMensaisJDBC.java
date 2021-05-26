@@ -38,17 +38,18 @@ public class aulasMensaisJDBC implements aulasMensaisDAO {
             st = conn.prepareStatement(
             
             "INSERT into aulasMensais "
-            + "(idProfessora,idDanca,Valor_Por_Hora,Valor_Da_Passagem,AulasMensais,valorTotal)"
+            + "(idProfessora,idDanca,Mes_Ano,Valor_Por_Hora,Valor_Da_Passagem,AulasMensais,valorTotal)"
             + "VALUES "
-            + "(?,?,?,?,?,?)",
+            + "(?,?,?,?,?,?,?)",
             java.sql.Statement.RETURN_GENERATED_KEYS);
             
             st.setInt(1, obj.getUsuario().getId());
             st.setInt(2, obj.getDanca().getId());
-            st.setDouble(3, obj.getValorPorHora());
-            st.setDouble(4, obj.getValorDaPassagem());
-            st.setInt(5, obj.getAulasMensais());
-            st.setDouble(6, obj.getValorTotal());
+            st.setDate(3, new java.sql.Date(obj.getMes_Ano().getTime()));
+            st.setDouble(4, obj.getValorPorHora());
+            st.setDouble(5, obj.getValorDaPassagem());
+            st.setInt(6, obj.getAulasMensais());
+            st.setDouble(7, obj.getValorTotal());
             
             st.executeUpdate();
             
@@ -71,7 +72,7 @@ public class aulasMensaisJDBC implements aulasMensaisDAO {
              st = conn.prepareStatement(
                      
                      "UPDATE aulasmensais AM "
-                     +"SET valorTotal = ((AM.Valor_Por_Hora * AM.aulasMensais) + AM.Valor_Da_Passagem) "
+                     +" SET valorTotal = ((AM.Valor_Por_Hora + AM.Valor_Da_Passagem) * AM.aulasMensais )"
                      
              );
              

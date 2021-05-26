@@ -123,7 +123,7 @@ public class ClientesDaoJDBC implements clientesDAO{
                 
                rs = st.executeQuery();
                
-               List<clientes> list = new ArrayList<clientes>();
+               List<clientes> list = new ArrayList<>();
         
                while(rs.next()){
                    
@@ -171,6 +171,7 @@ public class ClientesDaoJDBC implements clientesDAO{
     
     
     }
+    
 
     @Override
     public clientes findByNome(String Nome) {

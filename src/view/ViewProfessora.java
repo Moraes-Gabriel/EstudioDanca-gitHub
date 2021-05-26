@@ -251,6 +251,10 @@ public class ViewProfessora extends javax.swing.JFrame {
         System.out.println(DancaSelecionada);
         dancas idDanca = dDAO.findByDesc(DancaSelecionada);
          System.out.println(idDanca.getId());
+         
+           Date mes_ano = new Date();
+            System.out.println(mes_ano.toString());
+            
         
         try {
             java.sql.Date aniversario = new java.sql.Date(sdf.parse(txtIdade.getText()).getTime());
@@ -274,12 +278,12 @@ public class ViewProfessora extends javax.swing.JFrame {
             
             
             usuario idProfessoraa = uDAO.findByNome(txtNome.getText());
-            System.out.println(idProfessoraa);
-             System.out.println(idProfessoraa.getId());
-            
+          
+           
              aulasMensais a = new aulasMensais(null,
                      new usuario(idProfessoraa.getId()),
                      new dancas(idDanca.getId()),
+                     mes_ano,
                       Double.valueOf(txtValorPorHOra.getText()),
                      Double.valueOf(txtValorDaPassagem.getText()),
                      Integer.valueOf(txtAulasMensais.getText()),
